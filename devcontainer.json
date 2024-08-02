@@ -61,14 +61,22 @@
       "source": "${env:HOME}${env:USERPROFILE}/.minikube",
       "target": "/usr/local/share/minikube-localhost",
       "type": "bind"
+    },
+    // m2 directory for maven package
+    {
+      "source": "${env:HOME}${env:USERPROFILE}/.m2",
+      "target": "/home/vscode/.m2",
+      "type": "bind"
     }
-  ]
+  ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "kubectl version",
+  //"postCreateCommand": "kubectl version",
+
+  "postAttachCommand": "sudo chown -R vscode:vscode /workspaces"
 
   // Configure tool-specific properties.
   // "customizations": {},
